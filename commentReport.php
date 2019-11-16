@@ -1,5 +1,13 @@
 <?php
-  include_once $_SERVER['DOCUMENT_ROOT'] . "/report/CommentReport.php"
+  include_once $_SERVER['DOCUMENT_ROOT'] . "/report/CommentReport.php";
+  $commentReport = new CommentReport();
+  $comments = $commentReport->getCommentsThatContainString("candy");
+
+  echo count($comments);
+  for ( $i=0; $i<count($comments); $i++) {
+    echo $comments[$i]["orderid"];
+    echo "<br />";
+  }
 ?>
 <!doctype html>
 <html lang="en">
