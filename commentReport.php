@@ -1,13 +1,7 @@
 <?php
   include_once $_SERVER['DOCUMENT_ROOT'] . "/report/CommentReport.php";
   $commentReport = new CommentReport();
-  $comments = $commentReport->getCommentsThatContainString("candy");
-
-  echo count($comments);
-  for ( $i=0; $i<count($comments); $i++) {
-    echo $comments[$i]["orderid"];
-    echo "<br />";
-  }
+  $report = $commentReport->report;
 ?>
 <!doctype html>
 <html lang="en">
@@ -17,10 +11,27 @@
 </head>
 <body>
 <h1>Comments are grouped by the following sections</h1>
-<h2>Comments about candy</h2>
-<h2>Comments about call me / don't call me</h2>
-<h2>Comments about who referred me</h2>
-<h2>Comments about signature requirements upon delivery</h2>
-<h2>Miscellaneous comments (everything else)</h2>
+<?php
+  for ($i=0; $i<count($report); $i++) {
+    echo "<h2>" . $report[$i]["header"] . "</h2>";
+    echo "<p>Comments: " . count($report[$i]["commentRecords"]) . "</p>";
+?>
+<table border="1">
+  <tr>
+    <td>Order Id</td>
+    <td>Comment</td>
+    <td>Ship Date Expected</td>
+  </tr>
+<?php
+    for ($x=0; $x<count($report[$i]["commentRecords"]); $x++) {
+      echo "<tr><td>" . $report[$i]["commentRecords"][$x]["orderid"] . "</td>";
+      echo "<td>" . $report[$i]["commentRecords"][$x]["comment"] . "</td>";
+      echo "<td>" . $report[$i]["commentRecords"][$x]["shipdate"] . "</td></tr>";
+    }
+?>
+</table>
+<?php
+  }
+?>
 </body>
 </html>
