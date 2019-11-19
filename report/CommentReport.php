@@ -67,7 +67,7 @@
 
     function addCommentToReprt($commentRecord) {
       switch (true) {
-        case stristr($commentRecord["comment"],'candy'):
+        case $this->stristr_array($commentRecord["comment"], ['candy','bit o honey','cinnanom','smarties','tootsie']):
           $this->report[0]["commentRecords"][] = $commentRecord;
           break;
         case stristr($commentRecord["comment"],'call me'):
@@ -83,7 +83,47 @@
           $this->report[4]["commentRecords"][] = $commentRecord;
           break;
       }
+    }
 
+    ## Insert code here for stristr_array function
+    function stristr_array ($comment, $strings=null) {
+
+      if (!$this->isVariableAStringArray($strings)) {
+        // If an array of strings isn't passing in,
+        // it should return false.
+        return false;
+      }
+
+      foreach ($strings as $str) {
+        if (stristr($comment, $str)) {
+          // Return the string if a match is found
+          return $str;
+        }
+      }
+
+      // Otherwise don't return anything
+      return;
+    }
+
+    function isVariableAStringArray($array=null) {
+      // null [$array] variable
+      if (is_null($array)) {
+        return false;
+      }
+
+      // variable [$array] is not an array
+      if (!is_array($array)) {
+        return false;
+      }
+
+      foreach($array as $string) {
+        if (!is_string($string)) {
+          // [$array] is not just a string array
+          return false;
+        }
+      }
+
+      return true;
     }
   }
 ?>
