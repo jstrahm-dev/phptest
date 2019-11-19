@@ -1,0 +1,22 @@
+.idea
+
+.idea/*
+# User-specific stuff:
+.idea/workspace.xml
+.idea/modules.xml
+.idea/tasks.xml
+.idea/php.xml
+.idea/dictionaries
+.idea/dictionaries/*
+.idea/vcs.xml
+.idea/misc.xml
+.idea/gearfest-site.iml
+.idea/jsLibraryMappings.xml
+
+# Sensitive or high-churn files:
+.idea/dataSources.ids
+.idea/dataSources.xml
+.idea/dataSources.local.xml
+.idea/sqlDataSources.xml
+.idea/dynamic.xml
+.idea/uiDesigner.xml
