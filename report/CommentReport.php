@@ -67,7 +67,7 @@
 
     function addCommentToReprt($commentRecord) {
       switch (true) {
-        case $this->stristr_array($commentRecord["comment"], ['candy','bit o honey']):
+        case $this->stristr_array($commentRecord["comment"], ['candy','bit o honey','cinnanom','smarties','tootsie']):
           $this->report[0]["commentRecords"][] = $commentRecord;
           break;
         case stristr($commentRecord["comment"],'call me'):
