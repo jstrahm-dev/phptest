@@ -56,8 +56,8 @@
         $x = 0;
         while($row = $result->fetch_assoc()) {
           $fixRecords[$x] = array (
-            orderid  => $row["orderid"],
-            comment  => $row["comments"]
+            'orderid'  => $row["orderid"],
+            'comment'  => $row["comments"]
           );
           $x++;
         }

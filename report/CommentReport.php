@@ -7,24 +7,24 @@
     function __construct() {
       $this->report = array();
       $this->report[0] = array (
-          header=> "Comments about candy",
-          commentRecords=> array()
+          'header'=> "Comments about candy",
+          'commentRecords'=> array()
       );
       $this->report[1] = array (
-          header=> "Comments about call me / don't call me",
-          commentRecords=> array()
+          'header'=> "Comments about call me / don't call me",
+          'commentRecords'=> array()
       );
       $this->report[2] = array (
-          header=> "Comments about who referred me",
-          commentRecords=> array()
+          'header'=> "Comments about who referred me",
+          'commentRecords'=> array()
       );
       $this->report[3] = array (
-          header=> "Comments about signature requirements upon delivery",
-          commentRecords=> array()
+          'header'=> "Comments about signature requirements upon delivery",
+          'commentRecords'=> array()
       );
       $this->report[4] = array (
-          header=> "Miscellaneous comments",
-          commentRecords=> array()
+          'header'=> "Miscellaneous comments",
+          'commentRecords'=> array()
       );
       $this->generateReport();
     }
@@ -53,9 +53,9 @@
         $x = 0;
         while($row = $result->fetch_assoc()) {
           $commentRecords[$x] = array (
-            orderid  => $row["orderid"],
-            comment  => $row["comments"],
-            shipdate => $row["shipdate_expected"]
+            'orderid' => $row["orderid"],
+            'comment'  => $row["comments"],
+            'shipdate' => $row["shipdate_expected"]
           );
           $x++;
         }
